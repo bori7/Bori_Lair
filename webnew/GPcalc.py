@@ -2,13 +2,20 @@ import numpy as np
 
 def gpcalc(coursecodes,units,scores):
 
+
+    for i in range(len(units)):
+        units[i] = int(units[i])
+
+    for i in range(len(scores)):
+        scores[i] = int(scores[i])
+
     gradescore = []
     gradeletters = []
     unitsarr = np.array(units)
     totalunits = sum(unitsarr)
 
     for score in scores:
-        if score >= 70:
+        if int(score) >= 70:
             grade = 5
             gradescore.append(grade)
             gradeletter = 'A'
@@ -49,7 +56,7 @@ def gpcalc(coursecodes,units,scores):
             gradescore.append(grade)
             gradeletter = 'invalid'
             gradeletters.append(gradeletter)
-            print(score, " is an invalid score ")
+            #print(score, " is an invalid score ")
 
 
     gradescorearr = np.array(gradescore)
@@ -60,9 +67,10 @@ def gpcalc(coursecodes,units,scores):
     GPA = totalgradepoint/totalunits
 
 
-    for coursecode, grade in map(coursecodes,gradescore):
-        print('{couresecode} : {grade}\n'.format(coursecode=coursecode,grade=grade))
+    #for coursecode, grade in zip(coursecodes,gradescore):
+     #   pass
+        #print('{couresecode} : {grade}\n'.format(coursecode=coursecode,grade=grade))
 
-    print('This is GradepointAverage : {GPA}'.format(GPA = GPA))
+    #print('This is GradepointAverage : {GPA}'.format(GPA = GPA))
 
-    return GPA
+    return GPA, gradeletters

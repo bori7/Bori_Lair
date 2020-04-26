@@ -30,6 +30,15 @@ class MyCollection(MongoConnection):
             self.collection.delete_one({ "id": obj.id})
 
 
+
+
+
+
+
+
+
+
+
 #my_col_obj = MyCollection()
 #obj = Mymodel.objects.first()
 #my_col_obj.update_and_save(obj)

@@ -114,7 +114,8 @@
     <div class="container card  col-5 ">
         <h2 class="card-header ">Sign in</h2>
         <div class="card-body">
-            <form action = "{% url 'loggedin' %}">
+            <form action = "{% url 'adduser' %}" method = "post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="validationTooltipUsername">Username</label>
 
@@ -136,6 +137,7 @@
                     </div>
                 </div>
             </form>
+
             <p class="card-text"><a href="{% url 'forgotpassword' %}">Forgot password?</a></p>
             <a href="{% url 'signup' %}" class="btn btn-primary">Sign up</a>
         </div>
