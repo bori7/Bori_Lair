@@ -36,7 +36,16 @@ urlpatterns = [
     path('CompPlay/', views.CompPlay, name = 'CompPlay'),
     path('secret1/', views.secret_1, name = 'secret1'),
     path('secret2/', views.secret_2, name = 'secret2'),
+    path('hidden1/', views.hide_1, name='hide1'),
+    path('hidden2/', views.hide_2, name='hide2'),
+    path('sub1/', views.submit1, name='sub1'),
+    path('sub2/', views.submit2, name='sub2'),
+    path('Compsub/', views.Compsubmit, name='Compsub'),
+    path('loser/', views.loser, name='loser'),
     path('winner/', views.winner, name = 'winner'),
+    path('Compwinner/', views.Compwinner, name='Compwinner'),
+    path('reset/', views.reset, name = 'reset'),
+    path('Compreset/', views.Compreset, name = 'Compreset'),
     path('giveup/', views.giveup, name = 'giveup'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

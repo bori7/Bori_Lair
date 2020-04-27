@@ -92,20 +92,23 @@
 
 
     <div class="container card  col-5 ">
-        <h2 class="card-header text-success">Player {{ 1 }}</h2>
+        <h2 class="card-header text-success">Player {{P}}!!!!!!</h2>
         <div class="card-body">
 
             <div class=" container card text-black bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header "><i>You won in:</i></div>
+                <div class="card-header "><h5 class=" font-italic ">You won in : {{nl}} </h5></div>
                 <div class="card-body">
 
-                    <h2 class = 'card-text shadow-lg p-3 mb-5 bg-white rounded'><i>5</i></h2>
+                    <h4 class = 'card-text shadow-lg p-3 mb-5 bg-white rounded'><i>
+                        <p class="text-info">P1 secret : {{secret1}}</p>
+                        <p class="text-danger">P2 secret : {{secret2}}</p>
+                    </i></h4>
                 </div>
             </div>
 
             <div class=" container row mx-md">
                 <div class="col px-md-5">
-                    <a class="btn btn-success" href = '{% url 'DandW' %}' type="button">Play Again</a>
+                    <a class="btn btn-success" href = '{% url "DandW" %}' type="button">Play Again</a>
                 </div>
 
             </div>

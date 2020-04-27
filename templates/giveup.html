@@ -96,16 +96,16 @@
         <div class="card-body">
 
             <div class=" container card text-black bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header "><i>THis is the secret number:</i></div>
+                <div class="card-header "><i>This is the secret number:</i></div>
                 <div class="card-body">
 
-                    <h2 class = 'card-text shadow-lg p-3 mb-5 bg-white rounded'><i>5</i></h2>
+                    <h2 class = 'card-text shadow-lg p-3 mb-5 bg-white rounded'><i>{{secret}}</i></h2>
                 </div>
             </div>
 
             <div class=" container row mx-md">
                 <div class="col px-md-5">
-                    <a class="btn btn-success" href = '{% url 'CompPlay' %}' type="button">Try Again</a>
+                    <a class="btn btn-success" href = "{% url 'CompPlay' %}" type="button">Try Again</a>
                 </div>
 
             </div>
