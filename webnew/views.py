@@ -53,9 +53,15 @@ def add_user(request, col = Mycol):
     password = password
 
     if col.find({'username': name}).count():
-        pass
+        iup = col.find_one({'username': name})
+        passwordreal =  iup['Password']
+        if str(password) == str(passwordreal):
+            pass
+        else:
+            return render(request, 'doesnotexist.html',{'message':'Wrong username or password'})
+
     else:
-        col.insert_one({'username':name,'Password':password})
+        return render(request, 'signup.html', {'message':'that user does not exist'})
 
     for lu in col.find({'username': name}):
         Login_name = lu['username']
@@ -66,7 +72,7 @@ def add_user(request, col = Mycol):
 
 def home(request):
 
-    return render(request,'index.html', {'key1':'I am going far'})
+    return render(request,'index.html')
 
 def downloads(request):
     return HttpResponse('<hi>Welcome, This is where you download</hi>')
@@ -255,7 +261,33 @@ def GPAresult(request, col = Mycol):
 
 def signup(request):
 
-    return render(request, 'signup.html')
+    message = ''
+    return render(request,'signup.html',{'message':message})
+
+
+def addsignup(request, col=Mycol):
+
+    usernamesignup = request.POST['usernamesignup']
+    passwordsignup = request.POST['passwordsignup']
+    passwordcheck = request.POST['passwordcheck']
+
+    if col.find({'username': usernamesignup}).count():
+        message = "that user exists"
+        return render(request, 'doesnotexist.html', {'message': message})
+
+    else:
+        pass
+
+    if str(passwordsignup) != str(passwordcheck):
+        message = 'passwword validation failed'
+        return render(request, 'signup.html', {'message': message})
+    else:
+        pass
+
+    col.insert_one({'username':usernamesignup,'Password':passwordsignup})
+
+
+    return render(request, 'index.html')
 
 def loggedin(request,col=Mycol):
 
@@ -265,8 +297,43 @@ def loggedin(request,col=Mycol):
 
     return render(request, 'loggedin.html',{'username':Login_name})
 
+
 def forgotpassword(request):
+
     return render(request, 'forgotpassword.html')
+
+
+def keyreset(request,col = Mycol):
+
+    usernamereset = request.POST['usernamereset']
+    passwordreset = request.POST['passwordreset']
+    passwordcheckreset = request.POST['passwordcheckreset']
+
+    if col.find({'username': usernamereset}).count():
+        pass
+    else:
+        message = 'this user does not exist'
+        return render(request, 'resetpassword.html', {'message': message })
+
+    if str(passwordreset) != str(passwordcheckreset):
+        message = 'passwword validation failed'
+        return render(request, 'resetpassword.html', {'message': message})
+    else:
+        pass
+
+    myquery = {'username': usernamereset}
+    newvalues = {"$set": {"Password": passwordreset}}
+
+    col.update_one(myquery, newvalues)
+
+    return render(request, 'index.html')
+
+
+def resetpassword(request):
+
+    return render(request, 'resetpassword.html',{'message': ''})
+
+
 
 def DandW(request, col = Mycol):
 
