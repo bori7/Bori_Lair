@@ -49,7 +49,7 @@ def add_user(request, col = Mycol):
 
     global name
 
-    name = username
+    name = username.lower()
     password = password
 
     if col.find({'username': name}).count():
@@ -260,7 +260,6 @@ def GPAresult(request, col = Mycol):
 
 
 def signup(request):
-
     message = ''
     return render(request,'signup.html',{'message':message})
 
@@ -270,6 +269,8 @@ def addsignup(request, col=Mycol):
     usernamesignup = request.POST['usernamesignup']
     passwordsignup = request.POST['passwordsignup']
     passwordcheck = request.POST['passwordcheck']
+
+    usernamesignup = usernamesignup.lower()
 
     if col.find({'username': usernamesignup}).count():
         message = "that user exists"
@@ -284,6 +285,7 @@ def addsignup(request, col=Mycol):
     else:
         pass
 
+    passwordsignup = passwordsignup.lower()
     col.insert_one({'username':usernamesignup,'Password':passwordsignup})
 
 
