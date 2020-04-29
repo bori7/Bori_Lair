@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+#import django_admin_env_notice
+#import django_zxcvbn_password_validator
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #'django_admin_env_notice',
+    #'zxcvbn_password',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #"django_admin_env_notice.context_processors.from_settings",
             ],
         },
     },
@@ -70,6 +75,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webnew.wsgi.application'
 
+ENVIRONMENT_NAME = "Production server"
+ENVIRONMENT_COLOR = "#FF2222"
+ENVIRONMENT_ADMIN_SELECTOR = "grp-header"
+ENVIRONMENT_FLOAT = True
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -98,6 +107,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+'''{
+        'NAME': 'zxcvbn_password.ZXCVBNValidator',
+        'OPTIONS': {
+            'min_score': 3,
+            'user_attributes': ('username', 'email', 'first_name', 'last_name')
+        }
+    }'''
+
 ]
 
 
