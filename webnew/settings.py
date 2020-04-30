@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 #import django_admin_env_notice
-#import django_zxcvbn_password_validator
+import django_zxcvbn_password_validator
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,14 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # Read SECRET_KEY from an environment variable
-'''import os
-SECRET_KEY = os.environ['SECRET_KEY']
 
-# OR
-
-# Read secret key from a file
-with open('/etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()'''
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 've(dw*k+w@j7bi5*)8jhug*g0)3id7g0%3yq*2tw3qt9l=&7t8'
@@ -47,8 +40,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'django_admin_env_notice',
-    #'zxcvbn_password',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,7 +73,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #"django_admin_env_notice.context_processors.from_settings",
             ],
         },
     },
@@ -122,14 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-'''{
-        'NAME': 'zxcvbn_password.ZXCVBNValidator',
-        'OPTIONS': {
-            'min_score': 3,
-            'user_attributes': ('username', 'email', 'first_name', 'last_name')
-        }
-    }'''
-
 ]
 
 # Simplified static file serving.
@@ -153,6 +135,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# The URL to use when referring to static files (where they will be served from)
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
