@@ -8,8 +8,8 @@ from pymongo import MongoClient
 Myclient = MongoClient('mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q',connectTimeoutMS=30000,
                      socketTimeoutMS=None,
                      socketKeepAlive=True,
-                    retryWrites= False)
-mydb = Myclient['LairDatabase']
+                    retryWrites =  False)
+mydb = Myclient.get_default_database()
 Mycol = mydb["oluwabori"]
 
 
