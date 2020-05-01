@@ -171,7 +171,7 @@
     </section>
 
     <div class=" row ">
-        <div class=" container card  col-5 " >
+        <div class=" container card  col-7 " >
 
             <h2 class="card-header text-info ">Player 1 </h2>
             <div class="card-body">
@@ -191,7 +191,7 @@
             </div>
         </div>
 
-        <div class=" container card  col-5 ">
+        <div class=" container card  col-7 ">
 
             <h2 class="card-header text-danger">Player 2 </h2>
             <div class="card-body">
@@ -221,7 +221,7 @@
      {% csrf_token %}
      <div class="row">
             {% csrf_token %}
-         <div class="col-5 ">
+         <div class="col-7 ">
             <table class=" table  table-striped table-hover ">
                 <thead class ='bg-secondary'>
                 <tr>
@@ -246,7 +246,7 @@
                 </tbody>
                 </table>
          </div>
-         <div class="col-5 ">
+         <div class="col-7 ">
             <table class=" table  table-striped table-hover ">
                 <thead class ='bg-secondary'>
                 <tr>
@@ -276,11 +276,11 @@
          <form >
 
         <div class = " container row">
-            <div class = "col-5">
+            <div class = "col-7">
                 <button class = 'col-ml-5-w-50 btn btn-info text-white'
                         type ="submit" name = "n" value = "1">Player 1 gives up</button>
             </div>
-            <div class = "col-5 ">
+            <div class = "col-7">
                 <button class = 'col-ml-5-w-50 btn btn-danger text-white'
                         type="submit" name = "n" value = "2" >Player 2 gives up</button>
             </div>
@@ -290,7 +290,7 @@
         <br>
          <br>
         <br>
-        <div class= " col-5">
+        <div class= " col-7">
             <a class = 'btn btn-outline-primary text-black' type="button"  href="{% url 'reset' %}">Reset</a>
         </div>
     </div>
