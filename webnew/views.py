@@ -5,7 +5,7 @@ import operator
 import random
 from pymongo import MongoClient
 
-Myclient = MongoClient('mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q',connectTimeoutMS=30000,
+Myclient = MongoClient('mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q',connectTimeoutMS=3000000,
                      socketTimeoutMS=None,
                      socketKeepAlive=True,
                     retryWrites =  False)
