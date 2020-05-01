@@ -92,7 +92,7 @@ DATABASES = {
   'default': {
      'ENGINE': 'djongo',
      'NAME': 'mlab1',
-     'HOST' : 'mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q/?retryWrites=true',
+     'HOST' : 'mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q?retryWrites=false',
      'USER' : 'oluwabori',
      'PASSWORD' : 'moses2490',
   }
