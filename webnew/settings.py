@@ -89,12 +89,14 @@ ENVIRONMENT_FLOAT = True
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+  'default': {
+     'ENGINE': 'djongo',
+     'NAME': 'mlab1',
+     'HOST' : 'mongodb://oluwabori:moses2490@ds331548.mlab.com:31548/heroku_z0sxdn7q',
+     'USER' : 'oluwabori',
+     'PASSWORD' : 'moses2490',
+  }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
