@@ -149,19 +149,19 @@
 
         <form action="{% url 'addcourses' %}" method="post">
             {% csrf_token %}
-            <div class="input-group" >
-                <div class="col-md-4  w-50">
+            <div class="container input-group" >
+                <div class="col  w-25">
                     <label for="validationServer01">Course Code</label>
                        <input type="text"  class = 'form-control' id="validationServer01" name="coursecode" required>
 
                 </div>
-                <div class="col-md-4 w-25">
+                <div class="col w-25">
                     <label for="validationServer02">Course Unit</label>
                     <input type="number" min="1" max="6" class="form-control" id="validationServer02" name="courseunit" required>
                 </div>
 
-                <div class="col-md-4  w-25 ">
-                    <label for="validationServer03">Score (0 - 100)</label>
+                <div class="col  w-25 ">
+                    <label  for="validationServer03">Score (0 - 100)</label>
                     <input type="number" min="0" max="100"class="form-control " id="validationServer03" name = 'score' required>
                     <p>
                     <div class="input-group-append" id="button-addon4">
@@ -184,10 +184,10 @@
                 <table class=" table  table-striped table-hover ">
                 <thead class ='bg-secondary'>
                 <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Course Code</th>
-                    <th scope="col">Course Unit</th>
-                    <th scope="col">Score</th>
+                    <th ></th>
+                    <th class="col-5" scope="col">Course Code</th>
+                    <th class="col-5" scope="col">Course Unit</th>
+                    <th class="col-5" scope="col">Score</th>
                 </tr>
                 </thead>
 
@@ -196,9 +196,9 @@
                 {% for index, code, unit, score in zip %}
                 <tr class="form-group">
                     <th scope="row"> <strong> {{index}}</strong></th>
-                    <td>{{ code }}</td>
-                    <td>{{ unit }}</td>
-                    <td>{{ score }}</td>
+                    <td scope="row">{{ code }}</td>
+                    <td scope="row">{{ unit }}</td>
+                    <td scope="row">{{ score }}</td>
                     <!--<td scope="row" class = 'font-italic'> Delete course
                         <input class="btn btn-outline-secondary"type = 'submit' name = 'index' value = {{index}}></td>-->
                      <td scope="row"><button class = 'font-italic btn btn-outline-secondary'
