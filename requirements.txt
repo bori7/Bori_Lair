@@ -2,7 +2,7 @@ asgiref==3.2.7
 bson==0.5.8
 dataclasses==0.6
 dj-database-url==0.5.0
-Django==3.0.5
+Django==3.0.12
 django-admin-env-notice==0.2
 django-admin-honeypot==1.1.0
 django-toast-messages==0.1
